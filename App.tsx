@@ -1,23 +1,20 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Router, Stack, Scene } from 'react-native-router-flux';
 
-interface AppProps {};
+import Home from './src/components/Home/Home';
+import HelloWorld from './src/components/HelloWorld/HelloWorld';
+import FlexBox from './src/components/Flexbox/FlexBox';
 
-export default class App extends React.Component<AppProps, {}> {
+export default class App extends React.Component<{}, {}> {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!1</Text>
-      </View>
+      <Router>
+        <Stack key="root">
+          <Scene key="home" component={Home} title="Home" initial={true} />
+          <Scene key="helloWorld" component={HelloWorld} title="HelloWorld" />
+          <Scene key="flexbox" component={FlexBox} title="FlexBox" />
+        </Stack>
+      </Router>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
