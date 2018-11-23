@@ -8,6 +8,11 @@ interface FlexBoxState {
 export default class FlexBox extends React.Component<{}, FlexBoxState> {
   constructor(props: {}) {
     super(props);
+    this.state = {
+      flexConteiner: {
+        justifyContent: 'center',
+      },
+    }
     this.onPress = this.onPress.bind(this);
   }
   render() {
