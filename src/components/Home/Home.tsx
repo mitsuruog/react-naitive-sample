@@ -18,6 +18,12 @@ export default class Home extends React.Component<{}, {}> {
         >
           <Text>FlexBox</Text>
         </TouchableOpacity>
+        <TouchableOpacity
+          style={style.navLink}
+          onPress={() => RouterActions.listView()}
+        >
+          <Text>ListView</Text>
+        </TouchableOpacity>
       </View>
     );
   }
