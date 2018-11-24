@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, ScrollView, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { Actions as RouterActions } from 'react-native-router-flux';
 
 interface ListViewState {
@@ -13,24 +13,26 @@ export default class ListView extends React.Component<{}, ListViewState> {
   constructor(props: {}) {
     super(props);
     this.state = {
-      items: [1, 2, 3, 4, 5, 6, 7, 8, 9].map(index => ({ id: index, name: `mitsuruog${index}` })),
+      items: [...Array(25)].map((_, index) => ({ id: index, name: `mitsuruog${index}` })),
     };
   }
   render() {
     return (
       <View>
-        {this.state.items.map(item => {
-          return (
-            <TouchableOpacity
-              key={item.id}
-              onPress={() => RouterActions.listView_detail({ item, title: item.name })}
-            >
-              <Text style={style.item}>
-                {item.name}
-              </Text>
-            </TouchableOpacity>
-          );
-        })}
+        <ScrollView>
+          {this.state.items.map(item => {
+            return (
+              <TouchableOpacity
+                key={item.id}
+                onPress={() => RouterActions.listView_detail({ item, title: item.name })}
+              >
+                <Text style={style.item}>
+                  {item.name}
+                </Text>
+              </TouchableOpacity>
+            );
+          })}
+        </ScrollView>
       </View>
     );
   }
