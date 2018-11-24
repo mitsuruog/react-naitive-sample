@@ -36,6 +36,12 @@ export default class Home extends React.Component<{}, {}> {
         >
           <Text>Images</Text>
         </TouchableOpacity>
+        <TouchableOpacity
+          style={style.navLink}
+          onPress={() => RouterActions.http()}
+        >
+          <Text>HTTP</Text>
+        </TouchableOpacity>
       </View>
     );
   }

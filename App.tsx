@@ -9,6 +9,7 @@ import ListViewDetail from './src/components/ListView/ListView.detail';
 import Login from './src/components/Login/Login';
 import Private from './src/components/Login/Private';
 import Images from './src/components/Images/Images';
+import Http from './src/components/Http/Http';
 
 export default class App extends React.Component<{}, {}> {
   render() {
@@ -23,6 +24,7 @@ export default class App extends React.Component<{}, {}> {
           <Scene key="login" component={Login} title="Login" />
           <Scene key="private" component={Private} title="Private" />
           <Scene key="images" component={Images} title="Images" />
+          <Scene key="http" component={Http} title="HTTP" />
         </Stack>
       </Router>
     );
