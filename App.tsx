@@ -6,6 +6,8 @@ import HelloWorld from './src/components/HelloWorld/HelloWorld';
 import FlexBox from './src/components/Flexbox/FlexBox';
 import ListView from './src/components/ListView/ListView';
 import ListViewDetail from './src/components/ListView/ListView.detail';
+import Login from './src/components/Login/Login';
+import Private from './src/components/Login/Private';
 
 export default class App extends React.Component<{}, {}> {
   render() {
@@ -17,6 +19,8 @@ export default class App extends React.Component<{}, {}> {
           <Scene key="flexbox" component={FlexBox} title="FlexBox" />
           <Scene key="listView" component={ListView} title="ListView" />
           <Scene key="listView_detail" component={ListViewDetail} />
+          <Scene key="login" component={Login} title="Login" />
+          <Scene key="private" component={Private} title="Private" />
         </Stack>
       </Router>
     );

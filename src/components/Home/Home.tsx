@@ -24,6 +24,12 @@ export default class Home extends React.Component<{}, {}> {
         >
           <Text>ListView</Text>
         </TouchableOpacity>
+        <TouchableOpacity
+          style={style.navLink}
+          onPress={() => RouterActions.login()}
+        >
+          <Text>Login</Text>
+        </TouchableOpacity>
       </View>
     );
   }
