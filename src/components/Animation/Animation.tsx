@@ -7,7 +7,6 @@ export default class Animation extends React.Component<{}, {}> {
       <View style={style.container}>
         <Text>Animation</Text>
         <TouchableOpacity>
-          <Animated.Value style={style.box} />
         </TouchableOpacity>
       </View>
     );

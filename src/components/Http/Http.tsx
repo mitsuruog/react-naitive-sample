@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, View, Text, StyleSheet, Button } from 'react-native';
+import { ScrollView, View, Text, StyleSheet, Button, ActivityIndicator } from 'react-native';
 
 class DummyModel {
   public userId: number;
@@ -32,21 +32,25 @@ export default class Http extends React.Component<{}, HttpState> {
   render() {
     return (
       <View style={style.container}>
-        <ScrollView>
-          {this.state.loading ? (
-            <Text>Loading...</Text>
-          ) :
-            this.state.data.map(item => (
-              <View
-                style={style.item}
-                key={item.id}
-              >
-                <Text style={style.title}>{item.title}</Text>
-                <Text style={style.body}>{item.body}</Text>
-              </View>
-            ))
-          }
-        </ScrollView>
+        {this.state.loading ? (
+          <ActivityIndicator
+            style={style.loading}
+            size="large"
+            animating={this.state.loading}
+          />
+        ) : (
+            <ScrollView>
+              {this.state.data.map(item => (
+                <View
+                  style={style.item}
+                  key={item.id}
+                >
+                  <Text style={style.title}>{item.title}</Text>
+                  <Text style={style.body}>{item.body}</Text>
+                </View>
+              ))}
+            </ScrollView>
+          )}
         <View style={style.button}>
           <Button
             title="Reload"
@@ -96,5 +100,10 @@ const style = StyleSheet.create({
     position: 'absolute',
     bottom: 0,
     right: 0,
+  },
+  loading: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   }
 });
