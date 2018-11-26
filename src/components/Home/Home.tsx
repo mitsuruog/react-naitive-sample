@@ -42,6 +42,12 @@ export default class Home extends React.Component<{}, {}> {
         >
           <Text>HTTP</Text>
         </TouchableOpacity>
+        <TouchableOpacity
+          style={style.navLink}
+          onPress={() => RouterActions.animation()}
+        >
+          <Text>Animation</Text>
+        </TouchableOpacity>
       </View>
     );
   }
