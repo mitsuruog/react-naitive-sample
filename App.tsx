@@ -11,6 +11,7 @@ import Private from './src/components/Login/Private';
 import Images from './src/components/Images/Images';
 import Http from './src/components/Http/Http';
 import Animation from './src/components/Animation/Animation';
+import WebView from './src/components/WebVIew/WebView';
 
 export default class App extends React.Component<{}, {}> {
   render() {
@@ -27,6 +28,7 @@ export default class App extends React.Component<{}, {}> {
           <Scene key="images" component={Images} title="Images" />
           <Scene key="http" component={Http} title="HTTP" />
           <Scene key="animation" component={Animation} title="Animation" />
+          <Scene key="webView" component={WebView} title="WebView" />
         </Stack>
       </Router>
     );

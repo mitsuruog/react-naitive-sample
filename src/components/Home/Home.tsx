@@ -48,6 +48,12 @@ export default class Home extends React.Component<{}, {}> {
         >
           <Text>Animation</Text>
         </TouchableOpacity>
+        <TouchableOpacity
+          style={style.navLink}
+          onPress={() => RouterActions.webView()}
+        >
+          <Text>WebView</Text>
+        </TouchableOpacity>
       </View>
     );
   }
