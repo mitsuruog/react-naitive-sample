@@ -12,6 +12,7 @@ import Images from './src/components/Images/Images';
 import Http from './src/components/Http/Http';
 import Animation from './src/components/Animation/Animation';
 import WebView from './src/components/WebVIew/WebView';
+import Form from './src/components/Form/Form';
 
 export default class App extends React.Component<{}, {}> {
   render() {
@@ -23,6 +24,7 @@ export default class App extends React.Component<{}, {}> {
           <Scene key="flexbox" component={FlexBox} title="FlexBox" />
           <Scene key="listView" component={ListView} title="ListView" />
           <Scene key="listView_detail" component={ListViewDetail} />
+          <Scene key="form" component={Form} title="Form" />
           <Scene key="login" component={Login} title="Login" />
           <Scene key="private" component={Private} title="Private" />
           <Scene key="images" component={Images} title="Images" />
