@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, ScrollView, StyleSheet, TextInput, Text, Switch, Slider, Picker } from 'react-native';
+import { View, ScrollView, StyleSheet, TextInput, Text, Switch, Slider, Picker, KeyboardAvoidingView } from 'react-native';
 
 interface FormState {
   formValues: {
@@ -25,7 +25,12 @@ export default class Form extends React.Component<{}, FormState> {
   }
   render() {
     return (
-      <View>
+      <KeyboardAvoidingView
+        behavior="padding"
+        // AndroidとiOSでkeyboardのサイズが違う場合はどうするんだろう
+        keyboardVerticalOffset={124}
+        enabled={true}
+      >
         <ScrollView>
           <View style={style.container}>
             <View style={style.formGroup}>
@@ -89,7 +94,7 @@ export default class Form extends React.Component<{}, FormState> {
             <Text>{JSON.stringify(this.state, null, 2)}</Text>
           </View>
         </ScrollView>
-      </View>
+      </KeyboardAvoidingView>
     );
   }
   private onFormChange(partialFormValue: {}) {
