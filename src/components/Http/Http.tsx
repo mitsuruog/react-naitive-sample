@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, View, Text, StyleSheet, Button, ActivityIndicator } from 'react-native';
+import { ScrollView, View, Text, StyleSheet, Button, ActivityIndicator, RefreshControl } from 'react-native';
 
 class DummyModel {
   public userId: number;
@@ -14,6 +14,7 @@ class DummyModel {
 
 interface HttpState {
   loading: boolean;
+  refreshing: boolean;
   data: Array<DummyModel>;
 }
 
@@ -22,9 +23,11 @@ export default class Http extends React.Component<{}, HttpState> {
     super(props);
     this.state = {
       loading: false,
+      refreshing: false,
       data: [],
     };
     this.fetch = this.fetch.bind(this);
+    this.onRefresh = this.onRefresh.bind(this);
   }
   componentDidMount() {
     this.fetch();
@@ -39,7 +42,14 @@ export default class Http extends React.Component<{}, HttpState> {
             animating={this.state.loading}
           />
         ) : (
-            <ScrollView>
+            <ScrollView
+              refreshControl={
+                <RefreshControl
+                  refreshing={this.state.refreshing}
+                  onRefresh={this.onRefresh}
+                />
+              }
+            >
               {this.state.data.map(item => (
                 <View
                   style={style.item}
@@ -68,15 +78,21 @@ export default class Http extends React.Component<{}, HttpState> {
           this.setState({
             data: responseJson.map(item => new DummyModel(item)),
             loading: false,
+            refreshing: false,
           });
         })
         .catch(error => {
           console.error(error);
           this.setState({
             loading: false,
+            refreshing: false,
           });
         });
     });
+  }
+  private onRefresh() {
+    this.fetch();
+    this.setState({ refreshing: true });
   }
 }
 
