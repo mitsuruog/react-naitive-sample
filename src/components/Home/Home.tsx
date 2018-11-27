@@ -60,6 +60,12 @@ export default class Home extends React.Component<{}, {}> {
         >
           <Text>WebView</Text>
         </TouchableOpacity>
+        <TouchableOpacity
+          style={style.navLink}
+          onPress={() => RouterActions.router()}
+        >
+          <Text>Router</Text>
+        </TouchableOpacity>
       </View>
     );
   }
