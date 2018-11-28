@@ -1,13 +1,19 @@
-expo-cliからプロジェクトを生成
+## react-naitive-sample
 
-TypeScriptの導入
-- https://qiita.com/mottox2/items/84b318bed9f44359606d
+My great hobby project
 
-This syntax requires an imported helper but module 'tslib' cannot be found” with ES2015 modules
-このエラーが出たが、VSCodeを再起動したらなぜか直った
+## Getting Started
 
-Routerの導入
-- https://github.com/aksonov/react-native-router-flux
+```
+clone https://github.com/mitsuruog/react-naitive-sample.git
+npm install 
+expo start
+```
 
-チュートリアルの実施
-- https://www.tutorialspoint.com/react_native/index.htm
+### Prerequisites
+- node: 10.13.0
+- expo: 31.0.2
+
+```
+npm install -g expo-cli
+```
