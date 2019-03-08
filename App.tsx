@@ -46,7 +46,13 @@ export default class App extends React.Component<{}, {}> {
                 <Scene key="http" component={Http} title="HTTP" />
                 <Scene key="animation" component={Animation} title="Animation" />
                 <Scene key="webView" component={WebView} title="WebView" />
-                <Scene key="router" component={ReactRouterSample} title="Router sample" />
+                <Scene
+                  key="router"
+                  component={ReactRouterSample}
+                  title="Router sample"
+                  onRight={() => undefined}
+                  rightTitle="Edit"
+                />
                 <Scene
                   key="drawer"
                   drawer={true}

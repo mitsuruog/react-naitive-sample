@@ -1,12 +1,18 @@
 import React from 'react';
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
-import { Scene, Tabs, Router, Actions as RouterActions } from 'react-native-router-flux';
+import { NavigationScreenProp } from 'react-navigation';
+import { Actions as RouterActions } from 'react-native-router-flux';
 
-const Aaa = () => {
-  return <View><Text>aaaa</Text></View>;
+interface ReactRouterSampleProps{
+  navigation: NavigationScreenProp<any, any>;
 }
 
-export default class ReactRouterSample extends React.Component<{}, {}> {
+export default class ReactRouterSample extends React.Component<ReactRouterSampleProps, {}> {
+  componentWillMount() {
+    this.props.navigation.setParams({
+      'onRight': this.onRight,
+    });
+  }
   render() {
     return (
       <View style={style.container}>
@@ -36,6 +42,9 @@ export default class ReactRouterSample extends React.Component<{}, {}> {
         </TouchableOpacity>
       </View>
     );
+  }
+  private onRight = () => {
+    console.log('Press onRight!!');
   }
 }
 
